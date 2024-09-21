@@ -129,6 +129,7 @@ const App = () => {
      todosCopy[draggedIndex] = tmp
 
      setTodos(todosCopy)
+     setIsAdding(false)
   }
 
   return (

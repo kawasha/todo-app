@@ -19,7 +19,12 @@ const Todo = ({ todo, toggleDone, number, deleteTodo, todoUp, todoDown, todosCou
 const Todos = ({ todos, toggleDone, deleteTodo, todoUp, todoDown, refs, isAdding, handleDrop }) => {
   return (
     <div className="w-4/5 mx-auto mt-10">
-      <h2 className="text-3xl font-bold text-white text-center mb-10">Todos</h2>
+      <h2 className="text-3xl font-bold text-white text-center">Todos</h2>
+
+      {/Mobi|Android|iPhone|iPad|Windows Phone/i.test(window.navigator.userAgent) ||
+        <h3 className="mb-5 text-center text-red-600 mt-3 bg-white p-1">You can drag and drop todos to switch thier positions</h3>
+      }
+
       <ul>
         {
           isAdding ?
