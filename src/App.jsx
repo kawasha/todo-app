@@ -106,10 +106,35 @@ const App = () => {
     }
   }
 
+  const handleDrop = (e) => {
+     e.preventDefault()
+     const draggedId = e.dataTransfer.getData('text')
+     const droppedId = e.target.getAttribute('id')
+
+     let draggedIndex, droppedIndex
+
+     const todosCopy = [...todos]
+
+     todosCopy.forEach((el, index) => {
+       if (el.id === draggedId) {
+         draggedIndex = index
+       }
+       if (el.id === droppedId) {
+         droppedIndex = index
+       }
+     })
+
+     const tmp = todosCopy[droppedIndex]
+     todosCopy[droppedIndex] = todosCopy[draggedIndex]
+     todosCopy[draggedIndex] = tmp
+
+     setTodos(todosCopy)
+  }
+
   return (
     <div className="w-4/5 mx-auto mt-10 py-5 max-w-3xl bg-sky-400">
       <TodoForm todo={todo} onChange={(e) => setTodo(e.target.value)} onSubmit={handleSubmit} />
-      <Todos todos={todos} toggleDone={handleToggleDone} deleteTodo={handleDeleteTodo} todoUp={handleTodoUp} todoDown={handleTodoDown} refs={refs} isAdding={isAdding} />
+      <Todos todos={todos} toggleDone={handleToggleDone} deleteTodo={handleDeleteTodo} todoUp={handleTodoUp} todoDown={handleTodoDown} refs={refs} isAdding={isAdding} handleDrop={handleDrop}/>
     </div>
   )
 }
