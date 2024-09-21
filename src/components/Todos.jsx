@@ -36,7 +36,9 @@ const Todos = ({ todos, toggleDone, deleteTodo, todoUp, todoDown, refs, isAdding
           })
           :
           todos.map((todo, index) => {
-            return <Todo key={todo.id} todo={todo} toggleDone={toggleDone} number={index + 1} deleteTodo={deleteTodo} todoUp={todoUp} todoDown={todoDown} todosCount={todos.length} handleDrop={handleDrop} refs={refs} />
+            if (todo) {
+              return <Todo key={todo.id} todo={todo} toggleDone={toggleDone} number={index + 1} deleteTodo={deleteTodo} todoUp={todoUp} todoDown={todoDown} todosCount={todos.length} handleDrop={handleDrop} refs={refs} />
+            }
           })
         }
       </ul>
