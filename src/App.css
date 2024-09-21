@@ -1,0 +1,47 @@
+li {
+    position: relative;
+}
+
+.todo-up {
+    animation-name: up;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+}
+
+.todo-down {
+    animation-name: down;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+}
+
+.fade-out {
+    animation-name: fadeOut;
+    animation-duration: 0.3s;
+    animation-timing-function: linear;
+}
+
+.fade-in {
+    animation-name: fadeIn;
+    animation-duration: 0.3s;
+    animation-timing-function: linear;
+}
+
+@keyframes up {
+    from {bottom: 0;}
+    to {bottom: 66px;}
+}
+
+@keyframes down {
+    from {top: 0;}
+    to {top: 66px;}
+}
+
+@keyframes fadeOut {
+    from {opacity: 1;}
+    to {opacity: 0;}
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
